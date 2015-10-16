@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class UrlList {
@@ -19,6 +21,8 @@ public class UrlList {
 	@Column(nullable=false)
 	private int project_id;
 	//private String create_date;
+	
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date create_date;
 	@Column(nullable=false)
 	private int host_id;
@@ -28,20 +32,7 @@ public class UrlList {
 	@ManyToOne
 	  private HostList hostlist;
 	
-	/*public String getCreate_date() {
-		return create_date;
-	}
-	public void setCreate_date(String create_date) {
-		this.create_date = create_date;
-	}*/
-	
-	public Date getCreate_date() {
-		return create_date;
-	}
-	public void setCreate_date(Date create_date) {
-		this.create_date = create_date;
-	}
-	
+
 	public int getUri_id() {
 		return uri_id;
 	}
@@ -60,7 +51,12 @@ public class UrlList {
 	public void setProject_id(int project_id) {
 		this.project_id = project_id;
 	}
-
+	public Date getCreate_date() {
+		return create_date;
+	}
+	public void setCreate_date(Date create_date) {
+		this.create_date = create_date;
+	}
 	public int getHost_id() {
 		return host_id;
 	}
